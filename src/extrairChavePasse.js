@@ -6,7 +6,7 @@ const chavePasse = urlParams.get('chavePasse');
 const resultadoDiv = document.getElementById('resultado');
 resultadoDiv.innerHTML = chavePasse;
 // // Exporta a chavePasse para ser usada em outros arquivos
-export { chavePasse };
+// export { chavePasse };
 
 
 // function extrairChavePasse() {
