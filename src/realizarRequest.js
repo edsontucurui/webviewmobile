@@ -22,7 +22,9 @@ function realizarRequest() {
     url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
   }
 
-
+    // Exibir a URL na tela
+    const urlDisplay = document.getElementById('urlDisplay');
+    urlDisplay.innerText = `URL para request: ${url}`;
 
   fetch(url, config)
     .then(response => response.json())
