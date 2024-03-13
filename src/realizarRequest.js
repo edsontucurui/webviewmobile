@@ -22,9 +22,7 @@ function realizarRequest() {
     url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
   }
 
-  // Exibir a URL na tela
-  const urlDisplay = document.getElementById('urlDisplay');
-  urlDisplay.innerText = `URL para request: ${url}`;
+
 
   fetch(url, config)
     .then(response => response.json())
@@ -35,4 +33,11 @@ function realizarRequest() {
     .catch(error => {
       console.error('Ocorreu um erro:', error);
     });
+}
+
+
+function formatJSON(json) {
+  var formattedJSON = JSON.stringify(json, null, 2);
+  var highlightedJSON = hljs.highlight('json', formattedJSON).value;
+  document.getElementById('retornoApi').innerHTML = highlightedJSON;
 }
