@@ -16,8 +16,12 @@
         <div class="form-group">
             <label>chavePasse recebida</label>
             <div id="resultado"></div>
-            <p>teste</p>
-        </div>  
+        </div>
+
+        <div class="form-group">
+            <label for="chavePasseInput">ChavePasse:</label>
+            <input type="text" id="chavePasseInput" placeholder="ChavePasse">
+        </div>        
 
     </header>
 
@@ -41,14 +45,12 @@
         <button onclick="realizarRequest()">Fazer Request</button>
     </div>
     
- 
+    <div id="urlDisplay" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;"></div>
+
     <!-- Elemento para exibir a Chave Única -->
     <div class="form-group">
         <p id="chaveUnica"></p>
     </div>    
-
-    <p id="idCpf"></p>
-
 
 
 <script src="src/extrairChavePasse.js"></script>   
