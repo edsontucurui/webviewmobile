@@ -1,9 +1,9 @@
 function realizarRequest() {
-    const instanciaApp = document.getElementById('instanciaAppInput').value;
+    const instanciaApp = '1';
     const chavePasse = document.getElementById('chavePasseInput').value;
-    const chaveFuncionalidade = document.getElementById('chaveFuncionalidadeInput').value;
-    const Authorization = document.getElementById('Authorization').value;
-    const urlSelecionada = document.getElementById('urlSelecionada').value;
+    const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
+    const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6ImE2OTIyZWRmLWE3ZTQtNGZjYy04NDlhLTQxNTUxMDg0NDRhMSIsImlhdCI6MTcxMDMzMjA0NCwiZXhwIjozMjg4MjEyMDQ0LCJhdWQiOiJhbGwifQ.ARTrpEjqAws2LEpLdBTG8s25HuvcMMk6qhNY7aLxEuI';
+    const urlSelecionada = 'url1';
 
     const config = {
         headers: {
