@@ -14,6 +14,8 @@ function extrairChavePasse() {
   // Simulando a extração do parâmetro chavePasse da URL
   const urlParams = new URLSearchParams(window.location.search);
   const chavePasse = urlParams.get('chavePasse');
+  const resultadoDiv = document.getElementById('resultado');
+  resultadoDiv.innerHTML = chavePasse;
   return chavePasse;
 }
 
