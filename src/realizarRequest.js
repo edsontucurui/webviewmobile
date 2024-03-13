@@ -38,8 +38,7 @@ function realizarRequest() {
 }
 
 
-function formatJSON(json) {
-  var formattedJSON = JSON.stringify(json, null, 2);
-  var highlightedJSON = hljs.highlight('json', formattedJSON).value;
-  document.getElementById('retornoApi').innerHTML = highlightedJSON;
+function exibirChaveUnica(data) {
+  const chaveUnica = data.data.chaveUnica;
+  document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica}`;
 }
