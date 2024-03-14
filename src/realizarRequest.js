@@ -30,7 +30,7 @@ function realizarRequest() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      formatJSON(data);
+      exibirChaveUnica(data);
     })
     .catch(error => {
       console.error('Ocorreu um erro:', error);
