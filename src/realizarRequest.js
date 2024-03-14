@@ -59,4 +59,4 @@ function exibirChaveUnica(data) {
 }
 
 // Exportando a função realizarRequest para ser usada em outros arquivos se necessário
-// module.exports = { realizarRequest };
+module.exports = { realizarRequest };
