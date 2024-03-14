@@ -1,7 +1,7 @@
 const token = '503b69dd23ededb1dc928d245996134e';
 
-async function obterBeneficiarioConexa(chaveUnica) {
-  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/cpf/${chaveUnica}`;
+async function obterLinkMagicoConexa(id) {
+  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/{id}`;
 
   const config = {
     headers: {
@@ -17,17 +17,14 @@ async function obterBeneficiarioConexa(chaveUnica) {
       throw new Error(data.message || 'Erro ao obter beneficiário da Conexa');
     }
 
-    const id = data.object.patient.id;
-    const blocked = data.object.patient.blocked;
+    const link = data.object.linkMagicoApp;
 
-    // Exibindo o ID na tela
-    document.getElementById('beneficiarioId').innerText = `ID do Beneficiário: ${id}`;
 
-    return { id, blocked };
+    return { link };
   } catch (error) {
     console.error('Erro ao obter beneficiário da Conexa:', error.message);
     return null;
   }
 }
 
-export { obterBeneficiarioConexa };
+export { obterLinkMagicoConexa };
