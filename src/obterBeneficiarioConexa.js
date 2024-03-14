@@ -5,7 +5,8 @@ async function obterBeneficiarioConexa(chaveUnica) {
 
   const config = {
     headers: {
-      token: token
+      'Content-Type': 'application/json',
+      'token': token
     }
   };
 
