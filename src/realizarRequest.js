@@ -5,16 +5,15 @@ function realizarRequest() {
     const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
   
     const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/usuario?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
-  //  const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/grupoFamiliar?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
-  //  const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
-  
+//  const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/grupoFamiliar?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
+//  const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
+
     const config = {
       headers: {
         'Authorization': `${Authorization}`
       }
     };
   
-    // Exibir a URL na tela
     const urlDisplay = document.getElementById('urlDisplay');
     urlDisplay.innerText = `URL para request: ${url}`;
   
@@ -45,7 +44,7 @@ function realizarRequest() {
       .then(data => {
         console.log(data);
         const id = data.object.patient.id;        
-        exibirChaveUnica(id, chaveUnica);
+        exibirChaveUnica(id, chaveUnica); // Corrigido para passar id e chaveUnica como argumentos
         obterLinkMagicoConexa(id); // Chamar a terceira requisição com o ID do paciente
       })
       .catch(error => {
@@ -67,7 +66,7 @@ function realizarRequest() {
       .then(data => {
         console.log(data);
         const linkMagico = data.object.linkMagicoApp;            
-        exibirChaveUnica(id, chaveUnica, linkMagico); // Exibir o linkMagicoApp
+        exibirChaveUnica(id, null, linkMagico); // Corrigido para passar id e linkMagico como argumentos
       })
       .catch(error => {
         console.error('Ocorreu um erro na terceira requisição:', error);
@@ -78,4 +77,4 @@ function realizarRequest() {
     const chaveUnicaDisplay = document.getElementById('chaveUnica');
     // Concatenar a chave única, o ID do paciente e o link mágico e exibi-los na tela
     chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Link Mágico: ${linkMagico}`;
-}
+  }
