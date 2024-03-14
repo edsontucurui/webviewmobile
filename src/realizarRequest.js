@@ -26,13 +26,18 @@ async function realizarRequest() {
     const response = await fetch(url, config);
     const data = await response.json();
     console.log('Data recebida:', data); // Log dos dados recebidos
+
     const chaveUnica = data.data.chaveUnica;
     const beneficiario = await obterBeneficiarioConexa(chaveUnica);
     const linkMagico = await obterLinkMagicoConexa(beneficiario.id);
+
     console.log('Data recebida:', beneficiario.id);
+    
     exibirChaveUnica(chaveUnica, beneficiario.id, linkMagico);
+
   } catch (error) {
     console.error('Ocorreu um erro:', error);
+    exibirErro('Ocorreu um erro ao processar a solicitação.');
   }
 }
 
@@ -41,6 +46,10 @@ function exibirChaveUnica(chaveUnica, id, linkMagico) {
   console.log('ID:', id); // Log do ID
   console.log('Link Mágico:', linkMagico); // Log do Link Mágico  
   document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica} ID: ${id}`;
+}
+
+function exibirErro(mensagem) {
+  document.getElementById('errorDisplay').innerText = mensagem;
 }
 
 module.exports = { obterBeneficiarioConexa, obterLinkMagicoConexa, realizarRequest };
