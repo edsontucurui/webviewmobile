@@ -38,8 +38,7 @@ async function realizarRequest() {
   } catch (error) {
     console.error('Ocorreu um erro:', error);
     // Exibir o erro na div de erro
-    const erroDisplay = document.getElementById('erroDisplay');
-    erroDisplay.textContent = `Ocorreu um erro: ${error.message}`;
+    exibirErro('Ocorreu um erro ao processar a solicitação.');
   }
 }
 
@@ -50,6 +49,9 @@ function exibirChaveUnica(chaveUnica, id, linkMagico) {
   document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica} ID: ${id}`;
 }
 
+function exibirErro(mensagem) {
+  document.getElementById('errorDisplay').innerText = mensagem;
+}
 
 module.exports = { obterBeneficiarioConexa, obterLinkMagicoConexa, realizarRequest };
 
