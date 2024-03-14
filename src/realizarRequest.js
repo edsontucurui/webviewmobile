@@ -40,6 +40,8 @@ function realizarRequest() {
         .then(result => {
           console.log('Beneficiário da Conexa:', result);
           const id = result.id;
+          console.log(result);
+          console.log(result.id);
           document.getElementById('chaveUnica').innerText += `\nID do Beneficiário: ${id}`;
         })
         .catch(err => {
