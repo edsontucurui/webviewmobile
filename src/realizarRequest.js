@@ -1,12 +1,10 @@
-const { obterBeneficiarioConexa } = require('./obterBeneficiarioConexa');
-
 function realizarRequest() {
   const instanciaApp = '1';
   const chavePasse = document.getElementById('chavePasseInput').value;
   const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
   const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
 
-  const urlSelecionada = 'url1';
+  const urlSelecionada = 'url1'; // Mantendo a lógica de urlSelecionada
 
   const config = {
     headers: {
@@ -32,31 +30,37 @@ function realizarRequest() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      const chaveUnica = data.data.chaveUnica;
-      document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica}`;
-      
-      // Chamando a função para obter o beneficiário da Conexa
-      obterBeneficiarioConexa(chaveUnica)
-        .then(result => {
-          console.log('Beneficiário da Conexa:', result);
-          const id = result.id;
-          console.log(result);
-          console.log(result.id);
-          document.getElementById('chaveUnica').innerText += `\nID do Beneficiário: ${id}`;
-        })
-        .catch(err => {
-          console.error('Erro ao obter beneficiário da Conexa:', err.message);
-        });
+      const chaveUnica = data.data.chaveUnica; // Obter chaveUnica da resposta
+      exibirChaveUnica(data);
+      realizarSegundaRequest(chaveUnica); // Chamar a segunda requisição com chaveUnica
     })
     .catch(error => {
       console.error('Ocorreu um erro:', error);
     });
 }
 
-function exibirChaveUnica(data) {
-  const chaveUnica = data.data.chaveUnica;
-  document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica}`;
+function realizarSegundaRequest(chaveUnica) {
+  const token = '503b69dd23ededb1dc928d245996134e';
+  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/cpf/${chaveUnica}`;
+  const config = {
+    headers: {
+      'token': token
+    }
+  };
+
+  fetch(url, config)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      exibirChaveUnica(data.object.patient.id, chaveUnica);
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro na segunda requisição:', error);
+    });
 }
 
-// Exportando a função realizarRequest para ser usada em outros arquivos se necessário
-module.exports = { realizarRequest };
+function exibirChaveUnica(patientId, chaveUnica) {
+  const chaveUnicaDisplay = document.getElementById('chaveUnica');
+  // Concatena o ID do paciente com a chave única e exibe na tela
+  chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${patientId}`;
+}
