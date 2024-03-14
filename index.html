@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,6 +16,7 @@
         <div class="form-group">
             <label>chavePasse recebida</label>
             <div id="resultado"></div>
+            <label for="chavePasseInput">teste:</label>
         </div>
 
         <div class="form-group">
@@ -38,7 +38,7 @@
         <img src="https://drvirtual.s3-sa-east-1.amazonaws.com/logos/conexa/logo.png" alt="logo conexa">
         <!-- <p>Texto abaixo do primeiro container.</p> -->
         <br>
-        <a id="openLinkButton" href="" target="_blank">Clique Conexa</a>
+        <a id="openLinkButton" href="" target="_blank">Clique aqui</a>
     </div>
 
 
@@ -46,9 +46,6 @@
         <button onclick="realizarRequest()">Fazer Request</button>
     </div>
     
-    <!-- Div para exibir erro -->
-    <div id="errorDisplay" style="color: red; margin-top: 10px;"></div>
-
     <div id="urlDisplay" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;"></div>
 
     <!-- Elemento para exibir a Chave Única -->
@@ -56,15 +53,8 @@
         <p id="chaveUnica"></p>
     </div>    
 
-    <div id="urlDisplay"></div>
-    <div id="chaveUnica">ee888</div>
-    <div id="beneficiarioId"></div>
-    <div id="chaveUnicaBeneficiario"></div>
 
 <script src="src/extrairChavePasse.js"></script>   
-<!-- <script src="src/realizarRequest.js" defer></script> -->
-
-<script type="module" src="src/realizarRequest.js"></script>
-
+<script src="src/realizarRequest.js"></script> 
 </body>
 </html>
