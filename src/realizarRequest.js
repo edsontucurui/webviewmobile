@@ -1,4 +1,3 @@
-
 function realizarRequest() {
   const instanciaApp = '1';
   const chavePasse = document.getElementById('chavePasseInput').value;
@@ -31,7 +30,7 @@ function realizarRequest() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      exibirChaveUnica(data);
+      formatJSON(data);
     })
     .catch(error => {
       console.error('Ocorreu um erro:', error);
