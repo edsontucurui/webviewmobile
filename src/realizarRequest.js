@@ -1,7 +1,3 @@
-import { obterBeneficiarioConexa } from './obterBeneficiarioConexa.js';
-import { obterLinkMagicoConexa } from './obterLinkMagicoConexa.js';
-
-
 function realizarRequest() {
   const instanciaApp = '1';
   const chavePasse = document.getElementById('chavePasseInput').value;
@@ -46,5 +42,3 @@ function exibirChaveUnica(data) {
   const chaveUnica = data.data.chaveUnica;
   document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica}`;
 }
-
-export { realizarRequest };
