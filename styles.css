@@ -6,7 +6,7 @@ body {
 }
 header {
     text-align: center;
-    background-color: #f0f0f0; /* Mesma cor do corpo */
+    background-color: white; /* Mesma cor do corpo */
     padding: 20px;
 }
 header img {
