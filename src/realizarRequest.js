@@ -1,6 +1,6 @@
 import { obterBeneficiarioConexa } from './obterBeneficiarioConexa.js';
 
-function realizarRequest() {
+async function realizarRequest() {
   const instanciaApp = '1';
   const chavePasse = document.getElementById('chavePasseInput').value;
   const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
@@ -28,27 +28,18 @@ function realizarRequest() {
   const urlDisplay = document.getElementById('urlDisplay');
   urlDisplay.innerText = `URL para request: ${url}`;
 
-  fetch(url, config)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      const chaveUnica = data.data.chaveUnica;
-      document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica}`;
-      // Chamar a função para obter o beneficiário
-      return obterBeneficiarioConexa(chaveUnica);
-    })
-    .then(beneficiario => {
-      // Exibir o ID do beneficiário na tela
-      const beneficiarioId = document.getElementById('beneficiarioId');
-      beneficiarioId.innerText = `ID do Beneficiário: ${beneficiario.id}`;
-
-      // Exibir a chaveUnica e o ID do beneficiário separados por espaço
-      const chaveUnicaBeneficiario = document.getElementById('chaveUnicaBeneficiario');
-      chaveUnicaBeneficiario.innerText = `Chave Única e ID do Beneficiário: ${beneficiario.id} ${beneficiario.chaveUnica}`;
-    })
-    .catch(error => {
-      console.error('Ocorreu um erro:', error);
-    });
+  try {
+    const response = await fetch(url, config);
+    const data = await response.json();
+    console.log(data);
+    const chaveUnica = data.data.chaveUnica;
+    const beneficiario = await obterBeneficiarioConexa(chaveUnica);
+    exibirChaveUnica(chaveUnica, beneficiario.id);
+  } catch (error) {
+    console.error('Ocorreu um erro:', error);
+  }
 }
 
-export { realizarRequest };
+function exibirChaveUnica(chaveUnica, id) {
+  document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica} ID: ${id}`;
+}

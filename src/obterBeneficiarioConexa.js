@@ -20,9 +20,6 @@ async function obterBeneficiarioConexa(chaveUnica) {
     const id = data.object.patient.id;
     const blocked = data.object.patient.blocked;
 
-    // Exibindo o ID na tela
-    document.getElementById('beneficiarioId').innerText = `ID do Beneficiário: ${id}`;
-
     return { id, blocked };
   } catch (error) {
     console.error('Erro ao obter beneficiário da Conexa:', error.message);
@@ -30,4 +27,4 @@ async function obterBeneficiarioConexa(chaveUnica) {
   }
 }
 
-export { obterBeneficiarioConexa };
+export { obterBeneficiarioConexa, realizarRequest };
