@@ -65,7 +65,8 @@ function realizarRequest() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        const linkMagico = data.object.linkMagicoApp;            
+        const linkMagico = data.object.linkMagicoApp;     
+        document.getElementById('openLinkButtonConexa').href = linkMagico;       
         exibirChaveUnica(id, null, linkMagico); // Corrigido para passar id e linkMagico como argumentos
       })
       .catch(error => {
