@@ -1,6 +1,7 @@
-const { obterBeneficiarioConexa } = require('./obterBeneficiarioConexa.js');
-const { obterLinkMagicoConexa } = require('./obterLinkMagicoConexa.js');
-
+// const { obterBeneficiarioConexa } = require('./obterBeneficiarioConexa.js');
+// const { obterLinkMagicoConexa } = require('./obterLinkMagicoConexa.js');
+import { obterBeneficiarioConexa } from './obterBeneficiarioConexa.js';
+import { obterLinkMagicoConexa } from './obterLinkMagicoConexa.js';
 
 async function realizarRequest() {
   const instanciaApp = '1';
@@ -53,7 +54,9 @@ function exibirErro(mensagem) {
   document.getElementById('errorDisplay').innerText = mensagem;
 }
 
-module.exports = { obterBeneficiarioConexa, obterLinkMagicoConexa, realizarRequest };
+// module.exports = { obterBeneficiarioConexa, obterLinkMagicoConexa, realizarRequest };
+
+export { realizarRequest };
 
 // Chamada da função para testar
 // realizarRequest();
