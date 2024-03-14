@@ -46,4 +46,4 @@ function exibirChaveUnica(chaveUnica, id, linkMagico) {
 module.exports = { obterBeneficiarioConexa, obterLinkMagicoConexa, realizarRequest };
 
 // Chamada da função para testar
-realizarRequest();
+// realizarRequest();
