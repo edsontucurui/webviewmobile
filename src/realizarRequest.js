@@ -32,12 +32,14 @@ async function realizarRequest() {
     const linkMagico = await obterLinkMagicoConexa(beneficiario.id);
 
     console.log('Data recebida:', beneficiario.id);
-    
+
     exibirChaveUnica(chaveUnica, beneficiario.id, linkMagico);
 
   } catch (error) {
     console.error('Ocorreu um erro:', error);
-    exibirErro('Ocorreu um erro ao processar a solicitação.');
+    // Exibir o erro na div de erro
+    const erroDisplay = document.getElementById('erroDisplay');
+    erroDisplay.textContent = `Ocorreu um erro: ${error.message}`;
   }
 }
 
@@ -48,9 +50,6 @@ function exibirChaveUnica(chaveUnica, id, linkMagico) {
   document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica} ID: ${id}`;
 }
 
-function exibirErro(mensagem) {
-  document.getElementById('errorDisplay').innerText = mensagem;
-}
 
 module.exports = { obterBeneficiarioConexa, obterLinkMagicoConexa, realizarRequest };
 
