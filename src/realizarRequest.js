@@ -1,6 +1,7 @@
 import { obterBeneficiarioConexa } from './obterBeneficiarioConexa.js';
 import { obterLinkMagicoConexa } from './obterLinkMagicoConexa.js';
 
+
 function realizarRequest() {
   const instanciaApp = '1';
   const chavePasse = document.getElementById('chavePasseInput').value;
@@ -25,8 +26,9 @@ function realizarRequest() {
     url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
   }
 
-  const urlDisplay = document.getElementById('urlDisplay');
-  urlDisplay.innerText = `URL para request: ${url}`;
+    // Exibir a URL na tela
+    const urlDisplay = document.getElementById('urlDisplay');
+    urlDisplay.innerText = `URL para request: ${url}`;
 
   fetch(url, config)
     .then(response => response.json())
@@ -39,34 +41,10 @@ function realizarRequest() {
     });
 }
 
+
 function exibirChaveUnica(data) {
   const chaveUnica = data.data.chaveUnica;
   document.getElementById('chaveUnica').innerText = `Chave Única: ${chaveUnica}`;
-
-  // Chamando a função para obter o beneficiário com a Chave Única
-  obterBeneficiarioConexa(chaveUnica)
-    .then(beneficiario => {
-      if (beneficiario) {
-        // Exibindo o ID do beneficiário na tela
-        document.getElementById('beneficiarioId').innerText = `ID do Beneficiário: ${beneficiario.id}`;
-
-        // Chamando a função para obter o link mágico com o ID do beneficiário
-        obterLinkMagicoConexa(beneficiario.id)
-          .then(linkMagico => {
-            if (linkMagico) {
-              // Exibindo o Link Mágico na tela
-              const linkMagicoDiv = document.getElementById('linkMagicoDiv');
-              linkMagicoDiv.innerHTML = `<a id="conexaLink" href="${linkMagico.link}" target="_blank">Clique Conexa</a>`;
-            }
-          })
-          .catch(error => {
-            console.error('Erro ao obter o link mágico:', error.message);
-          });
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao obter o beneficiário da Conexa:', error.message);
-    });
 }
 
 export { realizarRequest };
