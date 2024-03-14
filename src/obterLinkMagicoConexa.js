@@ -1,7 +1,7 @@
 const token = '503b69dd23ededb1dc928d245996134e';
 
 async function obterLinkMagicoConexa(id) {
-  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/{id}`;
+  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`;
 
   const config = {
     headers: {
@@ -14,17 +14,16 @@ async function obterLinkMagicoConexa(id) {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Erro ao obter beneficiário da Conexa');
+      throw new Error(data.message || 'Erro ao obter link mágico da Conexa');
     }
 
     const link = data.object.linkMagicoApp;
 
-
-    return { link };
+    return link;
   } catch (error) {
-    console.error('Erro ao obter beneficiário da Conexa:', error.message);
+    console.error('Erro ao obter link mágico da Conexa:', error.message);
     return null;
   }
 }
 
-export { obterLinkMagicoConexa };
+module.exports = { obterLinkMagicoConexa };

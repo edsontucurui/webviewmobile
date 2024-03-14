@@ -27,4 +27,4 @@ async function obterBeneficiarioConexa(chaveUnica) {
   }
 }
 
-export { obterBeneficiarioConexa, realizarRequest };
+module.exports = { obterBeneficiarioConexa };
