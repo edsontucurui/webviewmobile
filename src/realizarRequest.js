@@ -53,14 +53,35 @@ function realizarSegundaRequest(chaveUnica) {
     .then(data => {
       console.log(data);
       exibirChaveUnica(data.object.patient.id, chaveUnica);
+      realizarTerceiraRequest(data.object.patient.id); // Chamar a terceira requisição com o ID do paciente
     })
     .catch(error => {
       console.error('Ocorreu um erro na segunda requisição:', error);
     });
 }
 
-function exibirChaveUnica(patientId, chaveUnica) {
+function realizarTerceiraRequest(id) {
+  const token = '503b69dd23ededb1dc928d245996134e';
+  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`;
+  const config = {
+    headers: {
+      'token': token
+    }
+  };
+
+  fetch(url, config)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      exibirChaveUnica(null, null, data.object.linkMagicoApp); // Exibir o linkMagicoApp
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro na terceira requisição:', error);
+    });
+}
+
+function exibirChaveUnica(patientId, chaveUnica, linkMagicoApp) {
   const chaveUnicaDisplay = document.getElementById('chaveUnica');
-  // Concatena o ID do paciente com a chave única e exibe na tela
-  chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${patientId}`;
+  // Concatenar a chave única, o ID do paciente e o link mágico e exibi-los na tela
+  chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${patientId} - Link Mágico: ${linkMagicoApp}`;
 }
