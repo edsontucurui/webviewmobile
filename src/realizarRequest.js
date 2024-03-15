@@ -90,18 +90,6 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
     chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Origem: ${origemData} - Link Mágico: ${linkMagico}`;
 }
 
-// Adicionar evento de clique para abrir o link mágico
-document.getElementById('openLinkButtonConexa').addEventListener('click', function(event) {
-  event.preventDefault(); // Previne o comportamento padrão do link
-  abrirLinkMagico();
-});
 
-// Função para abrir o link mágico
-function abrirLinkMagico() {
-  // Verifique se o link mágico está definido
-  if (linkMagicoGlobal) {
-      window.open(linkMagicoGlobal);
-  } else {
-      console.error('Link mágico não está disponível.');
-  }
-}
+// Adicionar evento de clique ao botão openLinkButtonConexa
+document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
