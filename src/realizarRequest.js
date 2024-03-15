@@ -2,7 +2,10 @@
 let linkMagicoGlobal;
 let origemData;
 
-function realizarRequest() {
+function realizarRequest(event) {
+    // Impede o comportamento padrão do link
+    event.preventDefault();
+  
     // Parametros Mobile
     const instanciaApp = '1';
     const chavePasse = window.chavePasse;
@@ -61,9 +64,11 @@ function realizarRequest() {
                                     } else if (origemData === 'web') {
                                         linkMagico = data.object.linkMagicoWeb;
                                     }
-                                    document.getElementById('openLinkButtonConexa').href = linkMagico;
-                                    linkMagicoGlobal = linkMagico;
-                                    exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
+                                    // document.getElementById('openLinkButtonConexa').href = linkMagico;
+                                    // linkMagicoGlobal = linkMagico;
+                                    // exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
+                                                                        // Redireciona para o linkMagico
+                                    window.location.href = linkMagico;
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
@@ -85,19 +90,19 @@ function realizarRequest() {
         });
 }
 
-function realizarRequest(event) {
-  event.preventDefault(); // Evita que a página seja redirecionada ao clicar
+// function realizarRequest(event) {
+//   event.preventDefault(); // Evita que a página seja redirecionada ao clicar
 
-  // Restante do código da função realizarRequest...
-  // Mantenha o restante do código da função como estava antes...
+//   // Restante do código da função realizarRequest...
+//   // Mantenha o restante do código da função como estava antes...
 
-  // Adicione o seguinte código ao final da função para redirecionar para o linkMagico:
-  if (linkMagicoGlobal) {
-      window.location.href = linkMagicoGlobal; // Redireciona para o linkMagicoGlobal
-  } else {
-      console.error('Link mágico não está disponível.');
-  }
-}
+//   // Adicione o seguinte código ao final da função para redirecionar para o linkMagico:
+//   if (linkMagicoGlobal) {
+//       window.location.href = linkMagicoGlobal; // Redireciona para o linkMagicoGlobal
+//   } else {
+//       console.error('Link mágico não está disponível.');
+//   }
+// }
 
 
 function exibirChaveUnica(id, chaveUnica, linkMagico) {
@@ -105,6 +110,9 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
     chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Origem: ${origemData} - Link Mágico: ${linkMagico}`;
 }
 
+
+// // Adicionar evento de clique ao botão openLinkButtonConexa
+// document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
 
 // Adicionar evento de clique ao botão openLinkButtonConexa
 document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
