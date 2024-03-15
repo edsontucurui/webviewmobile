@@ -48,13 +48,18 @@ function realizarRequest() {
                             console.log(data);
                             const id = data.object.patient.id;
                             exibirChaveUnica(id, chaveUnica); // Passar chaveUnica para a função
-                            
+
                             // Chamar a quarta requisição com o ID do paciente
                             return fetch(`https://api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`, config_conexa)
                                 .then(response => response.json())
                                 .then(data => {
                                     console.log(data);
-                                    const linkMagico = data.object.linkMagicoApp;
+                                    let linkMagico;
+                                    if (origemData === 'mobile') {
+                                        linkMagico = data.object.linkMagicoApp;
+                                    } else if (origemData === 'web') {
+                                        linkMagico = data.object.linkMagicoWeb;
+                                    }
                                     document.getElementById('openLinkButtonConexa').href = linkMagico;
                                     linkMagicoGlobal = linkMagico;
                                     exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
