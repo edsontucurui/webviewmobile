@@ -35,8 +35,10 @@ function realizarRequest() {
   }
   
   function obterIdConexa(chaveUnica) {
-    const token = '503b69dd23ededb1dc928d245996134e';
-    const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/cpf/${chaveUnica}`;
+    //const token = '503b69dd23ededb1dc928d245996134e'; //homologação
+    const token = 'b193fd508bb3f5b2356819f7bf6eff4e'
+    //const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/cpf/${chaveUnica}`; // homologação
+    const url = `https://api.conexasaude.com.br/integration/enterprise/patients/cpf/${chaveUnica}`;  
     const config = {
       headers: {
         'token': token
@@ -57,8 +59,10 @@ function realizarRequest() {
   }
   
   function obterLinkMagicoConexa(id) {
-    const token = '503b69dd23ededb1dc928d245996134e';
-    const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`;
+    // const token = '503b69dd23ededb1dc928d245996134e'; //homologação
+    const token = 'b193fd508bb3f5b2356819f7bf6eff4e'
+    //const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`; // homologação
+    const url = `https://api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`; // produção  
     const config = {
       headers: {
         'token': token
