@@ -62,8 +62,8 @@ function realizarRequest() {
                                     }
                                     document.getElementById('openLinkButtonConexa').href = linkMagico;
                                     linkMagicoGlobal = linkMagico;
+                                    abrirLinkMagico(linkMagico); // Abrir o link mágico na mesma janela
                                     exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
-                                    abrirLinkMagico(); // Abrir o link mágico após configurar o href                       
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
@@ -90,7 +90,12 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
     chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Origem: ${origemData} - Link Mágico: ${linkMagico}`;
 }
 
-// Função para abrir o link mágico
-function abrirLinkMagico() {
-  window.open(linkMagicoGlobal);
+// Função para abrir o link mágico na mesma janela
+function abrirLinkMagico(link) {
+  // Verifique se o link mágico está definido
+  if (link) {
+      window.location.href = link;
+  } else {
+      console.error('Link mágico não está disponível.');
+  }
 }
