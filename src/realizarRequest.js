@@ -4,12 +4,15 @@ let origemData;
 
 function realizarRequest(event) {
 
-  // Desativar o evento de clique após o primeiro clique    
+    // Desativar o evento de clique após o primeiro clique    
     document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
 
-  // Impede o comportamento padrão do link
+    // Impede o comportamento padrão do link
     event.preventDefault();
    
+    // Altera o texto do link para "Carregando..."
+    document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
+
     // Parametros Mobile
     const instanciaApp = '1';
     const chavePasse = window.chavePasse;
