@@ -12,8 +12,6 @@ function realizarRequest(event) {
     // Impede o comportamento padrão do link
     event.preventDefault();
    
-
-
     // Parametros Mobile
     const instanciaApp = '1';
     const chavePasse = window.chavePasse;
