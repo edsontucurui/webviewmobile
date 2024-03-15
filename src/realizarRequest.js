@@ -5,7 +5,7 @@ let origemData;
 function realizarRequest(event) {
     // Impede o comportamento padrão do link
     event.preventDefault();
-  
+    document.getElementById('openLinkButtonConexa').onclick = null;
     // Parametros Mobile
     const instanciaApp = '1';
     const chavePasse = window.chavePasse;
