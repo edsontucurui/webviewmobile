@@ -2,7 +2,10 @@ let linkMagicoGlobal;
 let origemData;
 
 function realizarRequest() {
-    // Parametros Mobile
+    // Desabilitar o botão
+    button.disabled = true;
+    
+  // Parametros Mobile
     const instanciaApp = '1';
     const chavePasse = window.chavePasse;
     const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
