@@ -3,6 +3,8 @@ let linkMagicoGlobal;
 let origemData;
 
 function realizarRequest(event) {
+    // Altera o texto do link para "Carregando..."
+    document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
 
     // Desativar o evento de clique após o primeiro clique    
     document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
@@ -10,8 +12,7 @@ function realizarRequest(event) {
     // Impede o comportamento padrão do link
     event.preventDefault();
    
-    // Altera o texto do link para "Carregando..."
-    document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
+
 
     // Parametros Mobile
     const instanciaApp = '1';
