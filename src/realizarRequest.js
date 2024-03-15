@@ -1,6 +1,7 @@
 function realizarRequest() {
     const instanciaApp = '1';
-    const chavePasse = document.getElementById('chavePasseInput').value;
+//    const chavePasse = document.getElementById('chavePasseInput').value;
+    const chavePasse = window.chavePasse; // Obtendo a chavePasse diretamente de extrairChavePasse.js    
     const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
     const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
   
