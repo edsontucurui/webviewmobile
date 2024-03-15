@@ -4,7 +4,7 @@ let origemData;
 
 function realizarRequest(event) {
     // Altera o texto do link para "Carregando..."
-    document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
+    // document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
 
     // Desativar o evento de clique após o primeiro clique    
     document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
