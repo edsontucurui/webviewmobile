@@ -34,14 +34,14 @@ function realizarRequest() {
             origemData = data.data.origem; // Armazenar origemData
             exibirChaveUnica(chaveUnica); // Passar chaveUnica para a função
 
-            // Chamar a segunda requisição com chaveUnica
+            // Requisição com Origem do Sistema
             return fetch(url_sistema, config)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
                     origemData = data.data.origem; // Atualizar origemData com o valor de url_sistema
 
-                    // Chamar a terceira requisição com a chaveUnica
+                    // Requisição ID Conexa com a chaveUnica
                     return fetch(`https://api.conexasaude.com.br/integration/enterprise/patients/cpf/${chaveUnica}`, config_conexa)
                         .then(response => response.json())
                         .then(data => {
@@ -49,7 +49,7 @@ function realizarRequest() {
                             const id = data.object.patient.id;
                             exibirChaveUnica(id, chaveUnica); // Passar chaveUnica para a função
 
-                            // Chamar a quarta requisição com o ID do paciente
+                            // Requisição LinkMagico com o ID do paciente
                             return fetch(`https://api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`, config_conexa)
                                 .then(response => response.json())
                                 .then(data => {
@@ -65,19 +65,22 @@ function realizarRequest() {
                                     exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
                                 })
                                 .catch(error => {
-                                    console.error('Ocorreu um erro na quarta requisição:', error);
+                                    console.error('Ocorreu um erro na requisição do linkMagico:', error);
                                 });
+
                         })
                         .catch(error => {
-                            console.error('Ocorreu um erro na terceira requisição:', error);
+                            console.error('Ocorreu um erro na requisição do id conexa:', error);
                         });
+
                 })
                 .catch(error => {
-                    console.error('Ocorreu um erro na segunda requisição:', error);
+                    console.error('Ocorreu um erro na requisição da origem do sistema mobile:', error);
                 });
+
         })
         .catch(error => {
-            console.error('Ocorreu um erro na primeira requisição:', error);
+            console.error('Ocorreu um erro na requisição da chaveunica do usuário logado mobile:', error);
         });
 }
 
