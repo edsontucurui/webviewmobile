@@ -85,6 +85,21 @@ function realizarRequest() {
         });
 }
 
+function realizarRequest(event) {
+  event.preventDefault(); // Evita que a página seja redirecionada ao clicar
+
+  // Restante do código da função realizarRequest...
+  // Mantenha o restante do código da função como estava antes...
+
+  // Adicione o seguinte código ao final da função para redirecionar para o linkMagico:
+  if (linkMagicoGlobal) {
+      window.location.href = linkMagicoGlobal; // Redireciona para o linkMagicoGlobal
+  } else {
+      console.error('Link mágico não está disponível.');
+  }
+}
+
+
 function exibirChaveUnica(id, chaveUnica, linkMagico) {
     const chaveUnicaDisplay = document.getElementById('chaveUnica');
     chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Origem: ${origemData} - Link Mágico: ${linkMagico}`;
