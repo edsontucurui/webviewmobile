@@ -5,7 +5,8 @@ let origemData;
 function realizarRequest(event) {
 
   // Desativar o evento de clique após o primeiro clique    
-    document.getElementById('openLinkButtonConexa').onclick = null;
+    document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
+
   // Impede o comportamento padrão do link
     event.preventDefault();
    
