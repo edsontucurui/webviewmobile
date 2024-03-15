@@ -1,11 +1,9 @@
+
 let linkMagicoGlobal;
 let origemData;
 
 function realizarRequest() {
-    // Desabilitar o botão
-    button.disabled = true;
-    
-  // Parametros Mobile
+    // Parametros Mobile
     const instanciaApp = '1';
     const chavePasse = window.chavePasse;
     const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
@@ -66,9 +64,6 @@ function realizarRequest() {
                                     document.getElementById('openLinkButtonConexa').href = linkMagico;
                                     linkMagicoGlobal = linkMagico;
                                     exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
-
-                                    // Reabilitar o botão após a execução da função
-                                    button.disabled = false;
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
