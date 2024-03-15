@@ -63,6 +63,7 @@ function realizarRequest() {
                                     document.getElementById('openLinkButtonConexa').href = linkMagico;
                                     linkMagicoGlobal = linkMagico;
                                     exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
+                                    abrirLinkMagico(); // Abrir o link mágico após configurar o href                       
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
@@ -91,10 +92,5 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
 
 // Função para abrir o link mágico
 function abrirLinkMagico() {
-    // Verifique se o link mágico está definido
-    if (linkMagicoGlobal) {
-        window.open(linkMagicoGlobal);
-    } else {
-        console.error('Link mágico não está disponível.');
-    }
+  window.open(linkMagicoGlobal);
 }
