@@ -70,7 +70,7 @@ function realizarRequest() {
       .then(data => {
         console.log(data);
         const linkMagico = data.object.linkMagicoApp;     
-        //document.getElementById('openLinkButtonConexa').href = linkMagico;       
+        document.getElementById('openLinkButtonConexa').href = linkMagico;       
         linkMagicoGlobal = linkMagico;
         exibirChaveUnica(id, null, linkMagico); // Corrigido para passar id e linkMagico como argumentos
       })
