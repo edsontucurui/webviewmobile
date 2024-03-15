@@ -1,3 +1,6 @@
+// Variável global para armazenar o link mágico
+let linkMagicoGlobal;
+
 function realizarRequest() {
     const instanciaApp = '1';
 //    const chavePasse = document.getElementById('chavePasseInput').value;
@@ -67,7 +70,8 @@ function realizarRequest() {
       .then(data => {
         console.log(data);
         const linkMagico = data.object.linkMagicoApp;     
-        document.getElementById('openLinkButtonConexa').href = linkMagico;       
+        //document.getElementById('openLinkButtonConexa').href = linkMagico;       
+        linkMagicoGlobal = linkMagico;
         exibirChaveUnica(id, null, linkMagico); // Corrigido para passar id e linkMagico como argumentos
       })
       .catch(error => {
@@ -80,3 +84,13 @@ function realizarRequest() {
     // Concatenar a chave única, o ID do paciente e o link mágico e exibi-los na tela
     chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Link Mágico: ${linkMagico}`;
   }
+
+// Função para abrir o link mágico
+function abrirLinkMagico() {
+    // Verifique se o link mágico está definido
+    if (linkMagicoGlobal) {
+        window.open(linkMagicoGlobal);
+    } else {
+        console.error('Link mágico não está disponível.');
+    }
+}
