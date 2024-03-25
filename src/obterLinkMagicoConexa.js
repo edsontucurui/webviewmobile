@@ -1,7 +1,14 @@
-const token = '503b69dd23ededb1dc928d245996134e';
+//homo
+// const token = '503b69dd23ededb1dc928d245996134e';
+//prod
+const token = 'b193fd508bb3f5b2356819f7bf6eff4e';
 
 async function obterLinkMagicoConexa(id) {
-  const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`;
+  //homo
+  // const url = `https://hml-api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/${id}`;
+  //prod
+  const url = `https://api.conexasaude.com.br/integration/enterprise/patients/generate-magiclink-access-app/{id}`;
+
 
   const config = {
     headers: {
