@@ -80,7 +80,8 @@ function realizarRequest(event) {
                                     // linkMagicoGlobal = linkMagico;
                                     // exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
                                                                         // Redireciona para o linkMagico
-                                    window.location.href = linkMagico;
+                                    //window.location.href = linkMagico;
+                                     window.open(linkMagico, '_blank');
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
