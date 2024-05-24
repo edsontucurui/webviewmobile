@@ -7,11 +7,8 @@ function realizarRequest(event) {
     document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
 
     // Desativar o evento de clique após o primeiro clique    
-    //document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
-    document.getElementById('openLinkButtonConexa').addEventListener('click', function(event) {
-    realizarRequest(event);
-    });
-
+    document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
+    
 
     // Impede o comportamento padrão do link
     event.preventDefault();
@@ -112,4 +109,8 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
 }
 
 // Adicionar evento de clique ao botão openLinkButtonConexa
-document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
+//document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
+document.getElementById('openLinkButtonConexa').addEventListener('click', function(event) {
+    realizarRequest(event);
+    });
+
