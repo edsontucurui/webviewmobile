@@ -106,8 +106,7 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
     const chaveUnicaDisplay = document.getElementById('chaveUnica');
     // chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Origem: ${origemData} - Link Mágico: ${linkMagico}`;
     chaveUnicaDisplay.innerText = `Usuário: ${chaveUnica} `;    
-    // Abrir link mágico em nova janela
-  window.open(linkMagicoGlobal, '_blank');
+
 }
 
 // Adicionar evento de clique ao botão openLinkButtonConexa
