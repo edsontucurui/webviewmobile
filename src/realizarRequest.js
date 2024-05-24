@@ -110,13 +110,7 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
 
 // Adicionar evento de clique ao botão openLinkButtonConexa
 //document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
-document.getElementById('openLinkButtonConexa').addEventListener('click', function() {
-    // Chama a função realizarRequest para obter a URL
-    var url = realizarRequest();
 
-    // Abre a URL em uma nova janela
-    window.open(url, '_blank');
-});
 
 
 
