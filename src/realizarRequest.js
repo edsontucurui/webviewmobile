@@ -82,6 +82,10 @@ function realizarRequest(event) {
                                                                         // Redireciona para o linkMagico
                                     //window.location.href = linkMagico;
                                      window.open(linkMagico, '_blank');
+                                    
+                                    // Voltar o botão para o estado original
+                                    document.getElementById('openLinkButtonConexa').innerText = originalButtonText; // Restaurar o texto do botão
+                                    document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest); // Reativar o evento de clique
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
