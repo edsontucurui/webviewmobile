@@ -7,7 +7,11 @@ function realizarRequest(event) {
     document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
 
     // Desativar o evento de clique após o primeiro clique    
-    document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
+    //document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
+    document.getElementById('openLinkButtonConexa').addEventListener('click', function(event) {
+    realizarRequest(event);
+    });
+
 
     // Impede o comportamento padrão do link
     event.preventDefault();
