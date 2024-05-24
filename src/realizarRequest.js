@@ -3,6 +3,11 @@ let linkMagicoGlobal;
 let origemData;
 let originalButtonText = document.getElementById('openLinkButtonConexa').innerText;
 
+function reloadPage() {
+    // Recarregar a página
+    location.reload();
+}
+
 function realizarRequest(event) {
     // Altera o texto do link para "Carregando..."
     document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
@@ -84,9 +89,8 @@ function realizarRequest(event) {
                                     //window.location.href = linkMagico;
                                      window.open(linkMagico, '_blank');
                                     
-                                    // Voltar o botão para o estado original
-                                    document.getElementById('openLinkButtonConexa').innerText = originalButtonText; // Restaurar o texto do botão
-                                    document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest); // Reativar o evento de clique
+                                   // Recarregar a página após a operação
+                                    reloadPage();
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
