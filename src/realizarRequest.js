@@ -1,6 +1,7 @@
 
 let linkMagicoGlobal;
 let origemData;
+let originalButtonText = document.getElementById('openLinkButtonConexa').innerText;
 
 function realizarRequest(event) {
     // Altera o texto do link para "Carregando..."
