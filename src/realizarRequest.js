@@ -86,8 +86,9 @@ function realizarRequest(event) {
                                     // linkMagicoGlobal = linkMagico;
                                     // exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
                                                                         // Redireciona para o linkMagico
-                                    //window.location.href = linkMagico;
-                                     window.open(linkMagico, '_blank');
+                                    window.location.href = linkMagico;
+                                    //window.open(linkMagico, '_blank');
+
                                     
                                    // Recarregar a página após a operação
                                     reloadPage();
