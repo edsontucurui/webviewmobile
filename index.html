@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TeleMedicina</title>
+	<script src="src/extrairChavePasse.js"></script>   
+    <script src="src/realizarRequest.js"></script> <!-- Carrega primeiro o script realizarRequest.js -->
 </head>
-<body onload="executarScripts()">
-    <script src="src/extrairChavePasse.js"></script>   
-    <script src="src/realizarRequest.js"></script> 
+<body>
     <script>
-        function executarScripts() {
-            // Chama as funções necessárias para gerar o linkMagico e redirecionar
-            realizarRequest();
-        }
+        // Após o carregamento do arquivo realizarRequest.js, chama a função para gerar o linkMagico
+        realizarRequest();
     </script>
 </body>
 </html>
