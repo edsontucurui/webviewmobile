@@ -35,6 +35,12 @@
         function abrirLink() {
             openLinkButtonConexa(); // Chama a função openLinkButtonConexa ao carregar a página
         }
+
+        // Função para abrir o link
+        function abrirLinkMagico(link) {
+            //window.location.href = link; // Redireciona para o link recebido como parâmetro
+			window.open(link, '_blank', 'noopener,noreferrer')
+        }
     </script>
 </body>
 </html>
