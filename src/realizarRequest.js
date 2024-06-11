@@ -8,11 +8,6 @@ function reloadPage() {
     location.reload();
 }
 
-function isIOS() {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-}
-
-
 function realizarRequest(event) {
     // Altera o texto do link para "Carregando..."
     document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
@@ -94,22 +89,13 @@ function realizarRequest(event) {
                                     // Redireciona para o linkMagico
                                     //window.location.href = linkMagico;
                                     //window.open(linkMagico, '_blank');
-                                    //window.open(linkMagico, '_blank', 'noopener,noreferrer');
+                                    window.open(linkMagico, '_blank', 'noopener,noreferrer');
                                     
-									
-                                    // Redireciona para o linkMagico
-                                    if (isIOS()) {
-                                        const a = document.createElement('a');
-                                        a.href = linkMagico;
-                                        a.target = '_blank';
-                                        a.rel = 'noopener noreferrer';
-                                        a.click();
-                                    } else {
-                                        window.open(linkMagico, '_blank', 'noopener,noreferrer');
-                                    }
+
+
                                     
-                                    // Recarregar a página após a operação
-                                    setTimeout(reloadPage, 1000);
+                                   // Recarregar a página após a operação
+                                    reloadPage();
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
@@ -140,3 +126,7 @@ function exibirChaveUnica(id, chaveUnica, linkMagico) {
 
 // Adicionar evento de clique ao botão openLinkButtonConexa
 document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
+
+
+
+
