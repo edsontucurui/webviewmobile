@@ -85,10 +85,22 @@ function realizarRequest(event) {
                                     // document.getElementById('openLinkButtonConexa').href = linkMagico;
                                     // linkMagicoGlobal = linkMagico;
                                     // exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
-                                                                        // Redireciona para o linkMagico
-                                    window.location.href = linkMagico;
+                                    
+                                    // Redireciona para o linkMagico
+                                    //window.location.href = linkMagico;
                                     //window.open(linkMagico, '_blank');
+                                    
 
+                                    // Verifica se está rodando no iOS
+                                    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+                                    if (isIOS) {
+                                        // Abre o link no Safari (navegador padrão do iOS)
+                                        window.location.href = linkMagico;
+                                    } else {
+                                        // Abre o link em uma nova aba/janela no Android
+                                        window.open(linkMagico, '_blank');
+                                    }
                                     
                                    // Recarregar a página após a operação
                                     reloadPage();
