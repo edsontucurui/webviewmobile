@@ -26,9 +26,14 @@
     <script src="src/extrairChavePasse.js"></script>   
     <script src="src/realizarRequest.js"></script> 
     <script>
+        // Define a função openLinkButtonConexa globalmente
+        function openLinkButtonConexa() {
+            realizarRequest(); // Chama a função realizarRequest que contém a lógica necessária
+        }
+
+        // Função para ser chamada ao carregar a página
         function abrirLink() {
-            // Chama a função para gerar o link
-            openLinkButtonConexa();
+            openLinkButtonConexa(); // Chama a função openLinkButtonConexa ao carregar a página
         }
     </script>
 </body>
