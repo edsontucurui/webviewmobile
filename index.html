@@ -6,7 +6,7 @@
     <title>TeleMedicina</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="openLinkButtonConexa()">
+<body onload="abrirLink()">
     <header>
         <img id="logo" src="https://casembrapa.com.br/storage/app/public/appearance_setting/logo_for_white_background.png" alt="Logo" /> 
         <br>
@@ -15,7 +15,7 @@
     </header>
 
     <div class="container">
-        <a id="openLinkButtonConexa" href="link-desejado.html">Clique aqui</a>
+        <a id="openLinkButtonConexa">Clique aqui</a>
     </div>
 
     <!-- Elemento para exibir a Chave Única -->
@@ -26,11 +26,9 @@
     <script src="src/extrairChavePasse.js"></script>   
     <script src="src/realizarRequest.js"></script> 
     <script>
-        function openLinkButtonConexa() {
-            var link = document.getElementById('openLinkButtonConexa');
-            if (link) {
-                window.location.href = link.href;
-            }
+        function abrirLink() {
+            // Chama a função para gerar o link
+            openLinkButtonConexa();
         }
     </script>
 </body>
