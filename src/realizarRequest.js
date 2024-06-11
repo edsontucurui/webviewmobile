@@ -20,15 +20,15 @@ function realizarRequest(event) {
     event.preventDefault();
    
     // Parametros Mobile
-    // const instanciaApp = '1'; // sandbox
-    const instanciaApp = '2'; // produçõa    
+     const instanciaApp = '1'; // sandbox
+    //const instanciaApp = '2'; // produçõa    
     const chavePasse = window.chavePasse;
-    // const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
-    const chaveFuncionalidade = 'd8a26aad-c78f-4f82-b061-947b9cbb4e57';
-    //const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
+     const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
+    //const chaveFuncionalidade = 'd8a26aad-c78f-4f82-b061-947b9cbb4e57';
+    const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
 
     //prod
-    const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjQwYTg3YTY0LTIxZDAtNDZjMS1iMWVmLWRkMGFiZDVkMTRjOSIsImlhdCI6MTcxNDE0MjUyNywiZXhwIjozMjkyMDIyNTI3LCJhdWQiOiJhbGwifQ.B692cmxTIFAQUPLNGqiIXUeW1RAuOKobJwj1Lz8MuLw';
+    //const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjQwYTg3YTY0LTIxZDAtNDZjMS1iMWVmLWRkMGFiZDVkMTRjOSIsImlhdCI6MTcxNDE0MjUyNywiZXhwIjozMjkyMDIyNTI3LCJhdWQiOiJhbGwifQ.B692cmxTIFAQUPLNGqiIXUeW1RAuOKobJwj1Lz8MuLw';
 
     const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/usuario?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
     const url_sistema = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
