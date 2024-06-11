@@ -4,42 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TeleMedicina</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="abrirLink()">
-    <header>
-        <img id="logo" src="https://casembrapa.com.br/storage/app/public/appearance_setting/logo_for_white_background.png" alt="Logo" /> 
-        <br>
-        <br>
-        <p class="custom-style">Acesse a Telemedicina da CASEMBRAPA</p>
-    </header>
-
-    <div class="container">
-        <a id="openLinkButtonConexa">Clique aqui</a>
-    </div>
-
-    <!-- Elemento para exibir a Chave Única -->
-    <div class="form-group" style="display: none;">
-        <p id="chaveUnica" style="display: none;"></p>
-    </div>    
-
+<body onload="executarScripts()">
     <script src="src/extrairChavePasse.js"></script>   
     <script src="src/realizarRequest.js"></script> 
     <script>
-        // Define a função openLinkButtonConexa globalmente
-        function openLinkButtonConexa() {
-            realizarRequest(); // Chama a função realizarRequest que contém a lógica necessária
-        }
-
-        // Função para ser chamada ao carregar a página
-        function abrirLink() {
-            openLinkButtonConexa(); // Chama a função openLinkButtonConexa ao carregar a página
-        }
-
-        // Função para abrir o link
-        function abrirLinkMagico(link) {
-            //window.location.href = link; // Redireciona para o link recebido como parâmetro
-			window.open(link, '_blank', 'noopener,noreferrer')
+        function executarScripts() {
+            // Chama as funções necessárias para gerar o linkMagico e redirecionar
+            realizarRequest();
         }
     </script>
 </body>
