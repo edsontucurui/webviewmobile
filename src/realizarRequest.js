@@ -3,10 +3,10 @@ let linkMagicoGlobal;
 let origemData;
 let originalButtonText = document.getElementById('openLinkButtonConexa').innerText;
 
-function reloadPage() {
-    // Recarregar a página
-    location.reload();
-}
+//function reloadPage() {
+    //// Recarregar a página
+//    location.reload();
+//}
 
 function realizarRequest(event) {
     // Altera o texto do link para "Carregando..."
@@ -95,7 +95,7 @@ function realizarRequest(event) {
 
                                     
                                    // Recarregar a página após a operação
-                                    reloadPage();
+                                    //reloadPage();
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
