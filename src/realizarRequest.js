@@ -8,6 +8,24 @@ function reloadPage() {
     location.reload();
 }
 
+function openLinkInNewTab(url) {
+  // Create a new anchor element
+  const anchor = document.createElement('a');
+
+  // Set the anchor's href attribute to the URL
+  anchor.href = url;
+
+  // Set the anchor's target attribute to "_blank" to open in a new tab
+  anchor.target = '_blank';
+
+  // Simulate a click event on the anchor to open the link
+  anchor.click();
+
+  // Destroy the anchor element after clicking
+  anchor.remove();
+}
+
+
 function realizarRequest(event) {
     // Altera o texto do link para "Carregando..."
     document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
@@ -87,10 +105,10 @@ function realizarRequest(event) {
                                     // exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
                                     
                                     // Redireciona para o linkMagico
-                                    window.location.href = linkMagico;
+                                    //window.location.href = linkMagico;
                                     //window.open(linkMagico, '_blank');
                                     //window.open(linkMagico, '_blank', 'noopener,noreferrer');
-                                    
+                                    openLinkInNewTab(linkMagico);
 
 
                                     
@@ -116,6 +134,9 @@ function realizarRequest(event) {
             console.error('Ocorreu um erro na requisição da chaveunica do usuário logado mobile:', error);
         });
 }
+
+
+
 
 function exibirChaveUnica(id, chaveUnica, linkMagico) {
     const chaveUnicaDisplay = document.getElementById('chaveUnica');
