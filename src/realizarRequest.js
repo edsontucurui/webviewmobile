@@ -88,19 +88,10 @@ function realizarRequest(event) {
                                     
                                     // Redireciona para o linkMagico
                                     //window.location.href = linkMagico;
-                                    //window.open(linkMagico, '_blank');
+                                    window.open(linkMagico, '_blank');
                                     
 
-                                    // Verifica se está rodando no iOS
-                                    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-                                    if (isIOS) {
-                                        // Abre o link no Safari (navegador padrão do iOS)
-                                        window.location.href = linkMagico;
-                                    } else {
-                                        // Abre o link em uma nova aba/janela no Android
-                                        window.open(linkMagico, '_blank');
-                                    }
                                     
                                    // Recarregar a página após a operação
                                     reloadPage();
