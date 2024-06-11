@@ -88,7 +88,8 @@ function realizarRequest(event) {
                                     
                                     // Redireciona para o linkMagico
                                     //window.location.href = linkMagico;
-                                    window.open(linkMagico, '_blank');
+                                    //window.open(linkMagico, '_blank');
+                                    window.open(linkMagico, '_blank', 'noopener,noreferrer');
                                     
 
 
