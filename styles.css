@@ -30,6 +30,15 @@ p.custom-style {
     color: #0084a4;
 }
 
+p.custom-style2 {
+    margin-top: 10px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    font-size: 15px;
+    margin: 0;
+    /* text-transform: uppercase; */
+    color: #0084a4;
+}
 
 .form-group {
     margin-bottom: 10px;
