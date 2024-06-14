@@ -1,34 +1,27 @@
-
 let linkMagicoGlobal;
 let origemData;
 let originalButtonText = document.getElementById('openLinkButtonConexa').innerText;
 
-//function reloadPage() {
-    //// Recarregar a página
-//    location.reload();
-//}
-
 function realizarRequest(event) {
+    // Impede o comportamento padrão do link se houver um evento
+    if (event) {
+        event.preventDefault();
+    }
+
     // Altera o texto do link para "Carregando..."
     document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
 
-    // Desativar o evento de clique após o primeiro clique    
-    document.getElementById('openLinkButtonConexa').removeEventListener('click', realizarRequest);
-    
-
-    // Impede o comportamento padrão do link
-    event.preventDefault();
-   
     // Parametros Mobile
-     const instanciaApp = '1'; // sandbox
-    //const instanciaApp = '2'; // produçõa    
+    const instanciaApp = '1'; // sandbox
+    //const instanciaApp = '2'; // produção    
     const chavePasse = window.chavePasse;
-     const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
+    const chaveFuncionalidade = '731bd214-9de0-4b0c-9d63-e549296552f3';
     //const chaveFuncionalidade = 'd8a26aad-c78f-4f82-b061-947b9cbb4e57';
-    const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
+	const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjY1MmQ3MDA2LTgwMjctNDM2Ni05MWQ1LTk2Njk0NjkxMWRlMCIsImlhdCI6MTcxMDMzNTE5NCwiZXhwIjozMjg4MjE1MTk0LCJhdWQiOiJhbGwifQ.hscnU0FSJCuy9QSyRgSygBd_stTsP7UtCW-dUTpKWyU';
 
     //prod
     //const Authorization = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlzIjoiY2hhdmVQYXNzZSIsImtleSI6IjQwYTg3YTY0LTIxZDAtNDZjMS1iMWVmLWRkMGFiZDVkMTRjOSIsImlhdCI6MTcxNDE0MjUyNywiZXhwIjozMjkyMDIyNTI3LCJhdWQiOiJhbGwifQ.B692cmxTIFAQUPLNGqiIXUeW1RAuOKobJwj1Lz8MuLw';
+
 
     const url = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/usuario?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
     const url_sistema = `https://api.mosiaomnichannel.com.br/clientes/chavePasse/sistema?instanciaApp=${instanciaApp}&chavePasse=${chavePasse}&chaveFuncionalidade=${chaveFuncionalidade}`;
@@ -82,20 +75,10 @@ function realizarRequest(event) {
                                     } else if (origemData === 'web') {
                                         linkMagico = data.object.linkMagicoWeb;
                                     }
-                                    // document.getElementById('openLinkButtonConexa').href = linkMagico;
-                                    // linkMagicoGlobal = linkMagico;
-                                    // exibirChaveUnica(id, chaveUnica, linkMagico); // Passar chaveUnica e linkMagico para a função
                                     
                                     // Redireciona para o linkMagico
                                     window.location.href = linkMagico;
-                                    //window.open(linkMagico, '_blank');
-                                    //window.open(linkMagico, '_blank', 'noopener,noreferrer');
-                                    
 
-
-                                    
-                                   // Recarregar a página após a operação
-                                    //reloadPage();
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
@@ -119,14 +102,5 @@ function realizarRequest(event) {
 
 function exibirChaveUnica(id, chaveUnica, linkMagico) {
     const chaveUnicaDisplay = document.getElementById('chaveUnica');
-    // chaveUnicaDisplay.innerText = `Chave Única: ${chaveUnica} - ID do Paciente: ${id} - Origem: ${origemData} - Link Mágico: ${linkMagico}`;
     chaveUnicaDisplay.innerText = `Usuário: ${chaveUnica} `;    
-
 }
-
-// Adicionar evento de clique ao botão openLinkButtonConexa
-document.getElementById('openLinkButtonConexa').addEventListener('click', realizarRequest);
-
-
-
-
