@@ -1,5 +1,6 @@
 let linkMagicoGlobal;
 let origemData;
+let loadTimeout;
 
 function realizarRequest(event) {
     // Impede o comportamento padrão do link se houver um evento
@@ -12,6 +13,12 @@ function realizarRequest(event) {
     if (button) {
         button.innerText = 'Carregando...';
     }
+
+    // Mostra o botão de tentativa novamente após 10 segundos
+    clearTimeout(loadTimeout);
+    loadTimeout = setTimeout(() => {
+        document.getElementById('retryButton').style.display = 'block';
+    }, 10000);
 
     // Parametros Mobile
     const instanciaApp = '1'; // sandbox
@@ -84,21 +91,25 @@ function realizarRequest(event) {
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
+                                    document.getElementById('retryButton').style.display = 'block';
                                 });
 
                         })
                         .catch(error => {
                             console.error('Ocorreu um erro na requisição do id conexa:', error);
+                            document.getElementById('retryButton').style.display = 'block';
                         });
 
                 })
                 .catch(error => {
                     console.error('Ocorreu um erro na requisição da origem do sistema mobile:', error);
+                    document.getElementById('retryButton').style.display = 'block';
                 });
 
         })
         .catch(error => {
             console.error('Ocorreu um erro na requisição da chaveunica do usuário logado mobile:', error);
+            document.getElementById('retryButton').style.display = 'block';
         });
 }
 
