@@ -11,12 +11,19 @@
         <img id="logo" src="https://casembrapa.com.br/storage/app/public/appearance_setting/logo_for_white_background.png" alt="Logo" /> 
         <br>
         <br>
-        <p class="custom-style">Acesse a Telemedicina da CASEMBRAPA</p>
+        <p class="custom-style">Telemedicina da CASEMBRAPA</p>
     </header>
 
     <div class="container">
+        <p class="loading-message">O acesso à telemedicina está sendo carregado automaticamente, aguarde...</p>
+        <button id="retryButton" style="display:none;" onclick="realizarRequest(event)">Caso não carregue automaticamente, clique aqui</button>
+    </div>
+
+<!--
+    <div class="container">
         <a id="openLinkButtonConexa" >Clique aqui</a>
     </div>
+-->   
 
     <div class="form-group" style="display: none;">
         <p id="chaveUnica" style="display: none;"></p>
