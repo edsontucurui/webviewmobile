@@ -6,7 +6,7 @@
     <title>TeleMedicina</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="realizarRequest(event)">
+<body onload="realizarRequest(null)">
     <header>
         <img id="logo" src="https://casembrapa.com.br/storage/app/public/appearance_setting/logo_for_white_background.png" alt="Logo" /> 
         <br>
@@ -17,8 +17,10 @@
     <div class="container">
         <p class="custom-style">Aguarde o carregamento....</p><br><br>
         <p>Caso não carregue automaticamente:</p>
-        <!-- <a id="openLinkButtonConexa" >Clique aqui</a> -->
-        <button onclick="realizarRequest(event)"> clique aqui</button>
+        <button onclick="realizarRequest(event)">Clique aqui</button>
+
+		<!-- <a id="openLinkButtonConexa" >Clique aqui</a> -->
+
     </div>
 
     <div class="form-group" style="display: none;">
