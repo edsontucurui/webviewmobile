@@ -6,17 +6,19 @@ function realizarRequest(event) {
     // Impede o comportamento padrão do link se houver um evento
     if (event) {
         event.preventDefault();
+        event.target.innerText = 'Carregando...';
     }
 
-    // Altera o texto do link para "Carregando..."
+    // Altera o texto do link para "Carregando..." se houver um link com esse id
     const button = document.getElementById('openLinkButtonConexa');
     if (button) {
         button.innerText = 'Carregando...';
     }
 
-    // Mostra o botão de tentativa novamente após 10 segundos
+    // Mostra a mensagem e o botão de tentativa novamente após 10 segundos
     clearTimeout(loadTimeout);
     loadTimeout = setTimeout(() => {
+        document.getElementById('manualLoadMessage').style.display = 'block';
         document.getElementById('retryButton').style.display = 'block';
     }, 10000);
 
@@ -91,24 +93,28 @@ function realizarRequest(event) {
                                 })
                                 .catch(error => {
                                     console.error('Ocorreu um erro na requisição do linkMagico:', error);
+                                    document.getElementById('manualLoadMessage').style.display = 'block';
                                     document.getElementById('retryButton').style.display = 'block';
                                 });
 
                         })
                         .catch(error => {
                             console.error('Ocorreu um erro na requisição do id conexa:', error);
+                            document.getElementById('manualLoadMessage').style.display = 'block';
                             document.getElementById('retryButton').style.display = 'block';
                         });
 
                 })
                 .catch(error => {
                     console.error('Ocorreu um erro na requisição da origem do sistema mobile:', error);
+                    document.getElementById('manualLoadMessage').style.display = 'block';
                     document.getElementById('retryButton').style.display = 'block';
                 });
 
         })
         .catch(error => {
             console.error('Ocorreu um erro na requisição da chaveunica do usuário logado mobile:', error);
+            document.getElementById('manualLoadMessage').style.display = 'block';
             document.getElementById('retryButton').style.display = 'block';
         });
 }
