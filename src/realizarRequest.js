@@ -1,6 +1,5 @@
 let linkMagicoGlobal;
 let origemData;
-let originalButtonText = document.getElementById('openLinkButtonConexa').innerText;
 
 function realizarRequest(event) {
     // Impede o comportamento padrão do link se houver um evento
@@ -9,7 +8,10 @@ function realizarRequest(event) {
     }
 
     // Altera o texto do link para "Carregando..."
-    document.getElementById('openLinkButtonConexa').innerText = 'Carregando...';
+    const button = document.getElementById('openLinkButtonConexa');
+    if (button) {
+        button.innerText = 'Carregando...';
+    }
 
     // Parametros Mobile
     const instanciaApp = '1'; // sandbox
